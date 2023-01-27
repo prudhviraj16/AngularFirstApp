@@ -1,0 +1,51 @@
+<label for="">Server Name</label>
+<!-- <input type="text" class="form-control" (input)="onUpdateServerName($event)"  /> -->
+
+<input type="text" class="form-control" [(ngModel)]="servername" />
+<br />
+<button
+  class="btn btn-primary"
+  [disabled]="!allowNewServer"
+  (click)="onCreateServer()"
+>
+  Click Me
+</button>
+<br />
+<p *ngIf="serverCreated; else noServer">{{ serverCreationStatus }}</p>
+
+<ng-template #noServer>
+  <p>No server was created</p>
+</ng-template>
+<!-- <p>{{allowNewServer}}</p> -->
+<!-- <h1 [innerText]="allowNewServer"></h1> -->
+
+<input type="text" class="form-control" [(ngModel)]="testname" />
+<button [disabled]="!testname" (click)="testHandler()">
+  Click for test name</button
+><br />
+{{ testname }}
+
+<p [ngStyle]="{ color: getColor() }">This is Jwala</p>
+
+<h1 [ngClass]="serverStatus === 'online' ? 'offline' : 'online'">Headers</h1>
+
+<ul *ngFor="let server of list">
+  <li>{{ server }}</li>
+</ul>
+
+<h1>Assignment - 3</h1>
+<p
+  *ngIf="hide"
+  [ngClass]="count > 5 ? 'black' : ''"
+  [ngStyle]="{ 'background-color': count > 5 ? 'blue' : '' }"
+>
+  Secret Password = "tuna"
+</p>
+<button (click)="toggle()">Display Details</button>
+
+<div
+  *ngFor="let number of array; let i = index"
+  [ngStyle]="{ backgroundColor: number >= 5 ? 'blue' : 'transparent' }"
+>
+  {{ number }}
+</div>
